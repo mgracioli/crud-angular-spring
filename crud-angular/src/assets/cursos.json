@@ -1,0 +1,13 @@
+[
+    {
+        "_id": "1",
+        "name": "Angular",
+        "category": "front-end"
+    },
+    {
+        "_id": "2",
+        "name": "Node",
+        "category": "back-end"
+    }
+
+]
