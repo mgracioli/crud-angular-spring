@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { Course } from '../models/course';
 import { CoursesService } from '../services/courses.service';
-
 
 @Component({
   selector: 'app-courses',
@@ -17,7 +16,7 @@ export class CoursesComponent implements OnInit {
 
   courses$: Observable<Course[]>
   //colunas que serão mostradas na tabela
-  displayedColumns = ['name','category'] 
+  displayedColumns = ['_id','name','category'] 
 
   constructor(
     private coursesService : CoursesService,

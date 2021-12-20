@@ -1,11 +1,10 @@
 package com.michel.model;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data //anotação do Lombok - cria os getters e setters das variáveis, o construtor, toString, entre outros
@@ -14,6 +13,7 @@ import lombok.Data;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("_id")    //transforma o id em _id, sem isso, o id nao aparece lá no Angular pq ele vai tentar pegar id e, não _id. O _id é como foi definido o nome desse campo lá no Angular (no arquivo models -> course.ts)
     private Long id;
 
     //@Column(name = "nome") //mesma ideia do @Table, para mudar o nome da coluna ou parar refernciar uma coluna já existente no banco
@@ -22,6 +22,4 @@ public class Course {
 
     @Column(length = 10, nullable = false)
     private String category;
-
-
 }

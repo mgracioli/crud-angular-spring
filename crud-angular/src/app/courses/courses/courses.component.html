@@ -5,6 +5,14 @@
 
 	<div *ngIf="courses$ | async as courses; else loading"> <!--as informações que estão no Observable courses$ vão ser armazenadas na variável courses, assim eu posso usar essa variável ao invés do Observable, com isso, não precisa ficar se inscrevendo ou desinscrevendo dele ao longo do código. O else define um template que será carregado enquanto o Observable courses$ não for inicializado, o template é o loading (que se refere à tag <ng-template #loading></ng-template> que está lá no fim desse html) -->
 		<table mat-table [dataSource]="courses" class="mat-elevation-z8"> <!-- nesse caso, não precisa usar o operador | async porque o [dataSource] do angular material já sabe tratar isso, se nao estivesse usando essa tabela, precisaria usar-->
+			<!-- Id Column -->
+			<ng-container matColumnDef="_id">
+				<th mat-header-cell *matHeaderCellDef> ID </th>
+				<td mat-cell *matCellDef="let course"> 
+					{{ course._id }} 
+				</td>
+			</ng-container>
+			
 			<!-- Name Column -->
 			<ng-container matColumnDef="name">
 				<th mat-header-cell *matHeaderCellDef> Curso </th>
